@@ -13,7 +13,7 @@
    
          <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> 
          <link rel="stylesheet" type="text/css" href="/css/custom.css"> 
-         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+         <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
  
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -25,7 +25,7 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/" class="{{ request()->is("/")? 'active':'' }}">
+          <a href="#" class="{{ request()->is("/")? 'active':'' }}">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -38,20 +38,30 @@
           </a>
         </li>
         <li>
-            <a href="{{ route('showMenu') }}" class="{{ request()->is("menu-admin")?'active':'' }}">
+            <a href="{{ route('order.index') }}" class="{{ request()->is("menu-admin")?'active':'' }}">
               <i class='bx bxs-dish' ></i>
               <span class="links_name">Order Now</span>
             </a>
           </li>
       
         <li>
-          <a href="report_admin.php" class="{{ request()->is("report_admin")?'active':'' }}">
+          <a href="{{ route('adminA') }}" class="{{ request()->is("report_admin")?'active':'' }}">
             <i class='bx bxs-wallet' ></i>
             <span class="links_name">Expenditure</span>
           </a>
         </li>
         <li class="log_out">
-          <a href="logout.php">
+          {{-- <i class='bx bx-power-off'></i> <a class="dropdown-item" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}</a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form> --}}
+          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
           </a>
@@ -76,7 +86,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     
                     
-                  <i class='bx bxs-lock' ></i> <a class="dropdown-item" href="change_pwd.php">Change Password</a>
+                  <i class='bx bxs-lock' ></i> <a class="dropdown-item" href="{{ route('password.request') }}">Change Password</a>
                   <div class="dropdown-divider"></div>
                 
                   <i class='bx bx-power-off'></i> <a class="dropdown-item" href="{{ route('logout') }}"
@@ -86,6 +96,7 @@
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
+                    
                 </form>
                 </div>
             
@@ -107,15 +118,16 @@
         </div>
       </div>
     </nav>
+    <section class="hom-section">
+      <div class="home-content">  
+     
+             <main class="py-12">
+               @yield('content')
+           </main>
+           </div>
+         </div>
+        </div>
+    </section>
    
- <div class="sales-details">
-  <div class="home-content">
-    <div class="overview-boxes">
-      <main class="py-12">
-        @yield('content')
-    </main>
-    </div>
-  </div>
- </div>
    
   </section>

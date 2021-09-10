@@ -1,6 +1,11 @@
 @extends('layouts.header')
    
 @section('content')
+<div class="home-content" >
+
+
+    <div class="sales-boxes">
+      <div class="recent-sales box">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">

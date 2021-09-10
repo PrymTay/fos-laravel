@@ -1,12 +1,14 @@
 @extends('layouts.header')
 @section('content')
+<div class="sales-boxes">
+    <div class="recent-sales box" style="width: 60%">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         {{-- <div class="pull-left">
             <h2> Menu item</h2>
         </div> --}}
         <div class="pull-left">
-            <a class="btn btn-primary" href="{{ route('food.index') }}"> Back</a>
+            <a class="btn btn-success" href="{{ route('food.index') }}"> Back</a>
         </div>
     </div>
 </div>

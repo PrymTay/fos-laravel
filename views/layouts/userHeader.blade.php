@@ -7,13 +7,13 @@
     
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
         <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
    
          <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> 
          <link rel="stylesheet" type="text/css" href="/css/custom.css"> 
-         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+         <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
  
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -25,27 +25,38 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/" class="{{ request()->is("/")? 'active':'' }}">
+          <a href="#" class="{{ request()->is("/")? 'active':'' }}">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
      
+     
         <li>
-            <a href="menu-admin.php" class="{{ request()->is("menu-admin")?'active':'' }}">
+            <a href="{{ route('userOrder.index') }}" class="{{ request()->is("menu-admin")?'active':'' }}">
               <i class='bx bxs-dish' ></i>
               <span class="links_name">Order Now</span>
             </a>
           </li>
       
         <li>
-          <a href="report_admin.php" class="{{ request()->is("report_admin")?'active':'' }}">
+          <a href="{{ route('userReport') }}" class="{{ request()->is("report_admin")?'active':'' }}">
             <i class='bx bxs-wallet' ></i>
             <span class="links_name">Expenditure</span>
           </a>
         </li>
         <li class="log_out">
-          <a href="logout.php">
+          {{-- <i class='bx bx-power-off'></i> <a class="dropdown-item" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}</a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form> --}}
+          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
           </a>
@@ -60,7 +71,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        <li><a href="admin.php">Home</a></li>
+        <li><a href="{{ route('recentOrders') }}">Home</a></li>
         
         <li class="nav-item dropdown">
             
@@ -70,12 +81,21 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     
                     
-                  <i class='bx bxs-lock' ></i> <a class="dropdown-item" href="change_pwd.php">Change Password</a>
+                  <i class='bx bxs-lock' ></i> <a class="dropdown-item" href="{{ route('password.request') }}">Change Password</a>
                   <div class="dropdown-divider"></div>
-                  <i class='bx bx-power-off'></i><a class="dropdown-item" href="logout.php">Log out</a>
+                
+                  <i class='bx bx-power-off'></i> <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}</a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                    
+                </form>
                 </div>
             
-
+          
         </li>
   
     </ul>
@@ -88,9 +108,21 @@
         
   
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <i class='bx bx-user' ></i> <a style="color: black;" class="dropdown-item" href="login.html">Change Account</a>
+            <i class='bx bx-user' ></i> <a style="color: black;" class="dropdown-item" href="{{ route('login') }}">Change Account</a>
 
         </div>
       </div>
     </nav>
+    <section class="hom-section">
+      <div class="home-content">  
+     
+             <main class="py-12">
+               @yield('content')
+           </main>
+           </div>
+         </div>
+        </div>
+    </section>
+   
+   
   </section>

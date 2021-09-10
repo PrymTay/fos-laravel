@@ -1,12 +1,17 @@
 @extends('layouts.header')
 @section('content')
+<div class="home-contnt" >
+
+   <div class="sales-boxes">
+      <div class="recent-sales box">
 <div class="row">
+
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2> {{ $users->firstname }}'s Details</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+            <a class="btn btn-success" href="{{ route('users.index') }}"> Back</a>
         </div>
     </div>
 </div>

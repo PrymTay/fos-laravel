@@ -1,12 +1,15 @@
 @extends('layouts.header')
 @section('content')
+
+    <div class="sales-boxes">
+      <div class="recent-sales box">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Add New User</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+            <a class="btn btn-success" href="{{ route('users.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -65,7 +68,7 @@
        
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-success">Submit</button>
         </div>
     </div>
    
